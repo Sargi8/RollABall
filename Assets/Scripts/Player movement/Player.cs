@@ -2,22 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class Player : MonoBehaviour
 {
-    
-    [SerializeField] private Rigidbody rigidbody;
-    [SerializeField] private float speed = 10f;
-    
+    private Rigidbody rigidbody;
+    [SerializeField]private float speed = 20f;
 
-   
-    private void Update()
+    
+    void Start()
     {
-        MoveController();
+        rigidbody = GetComponent<Rigidbody>();
     }
 
-   
-
-    void MoveController()
+    public void MoveController()
     {
         float moveVertical = Input.GetAxis("Vertical") * speed;
         float moveHorizontal = Input.GetAxis("Horizontal") * speed;
@@ -28,5 +24,4 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    
 }
